@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 # === CONFIG ===
+@export var enabled: bool = false
 @export var speed: float = 30.0
 @export var mouse_sensitivity: float = 0.002
 @export var joystick_sensitivity: float = 2.5
@@ -15,12 +16,17 @@ const MAX_PITCH: float = deg_to_rad(89)
 
 # === INPUT HANDLING ===
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and enabled:
 		yaw -= event.relative.x * mouse_sensitivity
 		pitch = clamp(pitch - event.relative.y * mouse_sensitivity, MIN_PITCH, MAX_PITCH)
 
 # === MOVEMENT + ROTATION ===
 func _physics_process(delta: float) -> void:
+	camera.current = enabled
+	if not enabled:
+		$UI.visible = false
+		return
+	
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		_handle_camera_rotation(delta)
 

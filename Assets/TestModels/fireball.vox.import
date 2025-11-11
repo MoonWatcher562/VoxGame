@@ -1,18 +1,14 @@
 [remap]
 
-importer="MagicaVoxel.With.Extensions.To.Mesh"
-type="Mesh"
+importer="VoxelVoxSceneImporter"
+type="PackedScene"
 uid="uid://d2id1s6u2fuiy"
-path="res://.godot/imported/fireball.vox-6b4cac5b9358dcc2957e4cd5e419d906.mesh"
+path="res://.godot/imported/fireball.vox-6b4cac5b9358dcc2957e4cd5e419d906.tscn"
 
 [deps]
 
 source_file="res://Assets/TestModels/fireball.vox"
-dest_files=["res://.godot/imported/fireball.vox-6b4cac5b9358dcc2957e4cd5e419d906.mesh"]
+dest_files=["res://.godot/imported/fireball.vox-6b4cac5b9358dcc2957e4cd5e419d906.tscn"]
 
 [params]
 
-Scale=0.1
-GreedyMeshGenerator=false
-SnapToGround=false
-FirstKeyframeOnly=true

@@ -1,18 +1,14 @@
 [remap]
 
-importer="MagicaVoxel.With.Extensions.To.Mesh"
-type="Mesh"
+importer="VoxelVoxSceneImporter"
+type="PackedScene"
 uid="uid://bxsaedlwdkefr"
-path="res://.godot/imported/menger.vox-c086cfffc26aad91b2c27831f64e7c0e.mesh"
+path="res://.godot/imported/menger.vox-c086cfffc26aad91b2c27831f64e7c0e.tscn"
 
 [deps]
 
 source_file="res://Assets/TestModels/menger.vox"
-dest_files=["res://.godot/imported/menger.vox-c086cfffc26aad91b2c27831f64e7c0e.mesh"]
+dest_files=["res://.godot/imported/menger.vox-c086cfffc26aad91b2c27831f64e7c0e.tscn"]
 
 [params]
 
-Scale=0.1
-GreedyMeshGenerator=true
-SnapToGround=false
-FirstKeyframeOnly=true

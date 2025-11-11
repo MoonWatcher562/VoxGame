@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://em383i6lstmo"]
+
+[ext_resource type="Script" uid="uid://b15fc21x14ppv" path="res://Scripts/Player/Player.gd" id="1_mt2tb"]
+[ext_resource type="Script" uid="uid://ugeif41xd62o" path="res://Scripts/Player/StateMachine/StateMachine.gd" id="2_it3p2"]
+[ext_resource type="Script" uid="uid://oxoveaxjfqna" path="res://Scripts/Player/StateMachine/IdleState.gd" id="3_ieb1o"]
+[ext_resource type="Script" uid="uid://c0lvytn5a6j0h" path="res://Scripts/Player/StateMachine/MoveState.gd" id="4_523t3"]
+[ext_resource type="Script" uid="uid://ogfcs4pnpje8" path="res://Scripts/Player/StateMachine/JumpState.gd" id="5_q5rm8"]
+[ext_resource type="Script" uid="uid://dcrmphp8muho6" path="res://Scripts/Player/StateMachine/FallState.gd" id="6_8w547"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oafcy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_it3p2"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_mt2tb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_oafcy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_it3p2")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56305504, 0)
+
+[node name="VoxelViewer" type="VoxelViewer" parent="Camera3D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_it3p2")
+metadata/_custom_type_script = "uid://ugeif41xd62o"
+
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("3_ieb1o")
+metadata/_custom_type_script = "uid://oxoveaxjfqna"
+
+[node name="MoveState" type="Node" parent="StateMachine"]
+script = ExtResource("4_523t3")
+metadata/_custom_type_script = "uid://c0lvytn5a6j0h"
+
+[node name="JumpState" type="Node" parent="StateMachine"]
+script = ExtResource("5_q5rm8")
+metadata/_custom_type_script = "uid://ogfcs4pnpje8"
+
+[node name="FallState" type="Node" parent="StateMachine"]
+script = ExtResource("6_8w547")
+metadata/_custom_type_script = "uid://dcrmphp8muho6"

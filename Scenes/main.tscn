@@ -1,8 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://bpbk2plry6i10"]
+[gd_scene load_steps=11 format=3 uid="uid://bpbk2plry6i10"]
 
 [ext_resource type="Script" uid="uid://dxkbrmbamajed" path="res://Scripts/Scenes/main.gd" id="1_8gbba"]
-[ext_resource type="ArrayMesh" uid="uid://d2id1s6u2fuiy" path="res://Assets/TestModels/fireball.vox" id="1_bo1nx"]
-[ext_resource type="PackedScene" uid="uid://dv2jfcyrsfudl" path="res://Scenes/Player/Builder.tscn" id="2_bo1nx"]
+[ext_resource type="VoxelMesherBlocky" uid="uid://lw1f5em0ilm" path="res://Assets/TerrainCommon/VoxelLib.tres" id="2_8gbba"]
+[ext_resource type="PackedScene" uid="uid://em383i6lstmo" path="res://Scenes/Player/PlayerMain.tscn" id="3_8gbba"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8gbba"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -17,18 +17,12 @@ sky = SubResource("Sky_jjvhh")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="VoxelGeneratorWaves" id="VoxelGeneratorWaves_jjgbg"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bo1nx"]
+frequency = 0.0013
+
+[sub_resource type="VoxelGeneratorNoise2D" id="VoxelGeneratorNoise2D_8gbba"]
+noise = SubResource("FastNoiseLite_bo1nx")
 channel = 0
-
-[sub_resource type="VoxelBlockyModelEmpty" id="VoxelBlockyModelEmpty_bo1nx"]
-
-[sub_resource type="VoxelBlockyModelCube" id="VoxelBlockyModelCube_8gbba"]
-
-[sub_resource type="VoxelBlockyLibrary" id="VoxelBlockyLibrary_jjvhh"]
-models = Array[VoxelBlockyModel]([SubResource("VoxelBlockyModelEmpty_bo1nx"), SubResource("VoxelBlockyModelCube_8gbba")])
-
-[sub_resource type="VoxelMesherBlocky" id="VoxelMesherBlocky_kry3j"]
-library = SubResource("VoxelBlockyLibrary_jjvhh")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjgbg"]
 render_priority = 1
@@ -49,30 +43,6 @@ albedo_color = Color(1, 1, 1, 0)
 stencil_mode = 1
 stencil_flags = 2
 
-[sub_resource type="Gradient" id="Gradient_21xkr"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_6bp64"]
-frequency = 0.0136
-offset = Vector3(0, 0, -1375.48)
-metadata/_preview_in_3d_space_ = true
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_344ge"]
-noise = SubResource("FastNoiseLite_6bp64")
-color_ramp = SubResource("Gradient_21xkr")
-seamless = true
-in_3d_space = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gbba"]
-vertex_color_use_as_albedo = true
-vertex_color_is_srgb = true
-albedo_color = Color(1, 0, 0, 1)
-albedo_texture = SubResource("NoiseTexture2D_344ge")
-emission_enabled = true
-emission = Color(0.67275554, 0.2191633, 5.7756904e-07, 1)
-emission_energy_multiplier = 1.53
-uv1_triplanar = true
-stencil_flags = 2
-
 [node name="root" type="Node3D"]
 script = ExtResource("1_8gbba")
 
@@ -84,13 +54,11 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="VoxelTerrain" type="VoxelTerrain" parent="."]
-generator = SubResource("VoxelGeneratorWaves_jjgbg")
-mesher = SubResource("VoxelMesherBlocky_kry3j")
+generator = SubResource("VoxelGeneratorNoise2D_8gbba")
+mesher = ExtResource("2_8gbba")
 
 [node name="Fireball" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_overlay = SubResource("StandardMaterial3D_bo1nx")
-mesh = ExtResource("1_bo1nx")
-surface_material_override/0 = SubResource("StandardMaterial3D_8gbba")
 
-[node name="Builder" parent="." instance=ExtResource("2_bo1nx")]
+[node name="PlayerMain" parent="." instance=ExtResource("3_8gbba")]
