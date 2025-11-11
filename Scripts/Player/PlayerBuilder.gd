@@ -84,7 +84,6 @@ func cast_ray(pos: Vector2 = Vector2.ZERO) -> Dictionary:
 func brush_sphere(terrain: VoxelTerrain, mode: VoxelTool.Mode, radius: float) -> void:
 	var ray_hit := cast_ray(get_viewport().get_mouse_position())
 	if ray_hit.position == null:
-		push_warning("not good")
 		return
 
 	var voxel_tool := terrain.get_voxel_tool()

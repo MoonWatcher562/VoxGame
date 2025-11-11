@@ -2,7 +2,7 @@ extends Node3D
 
 #@onready var voxel_lod_terrain: VoxelLodTerrain = $VoxelLodTerrain
 @onready var voxel_terrain: VoxelTerrain = $VoxelTerrain
-#@onready var builder: CharacterBody3D = $Builder
+@onready var builder: CharacterBody3D = $Builder
 
 var key_pressed: bool = false
 
@@ -21,5 +21,5 @@ func _process(_delta: float) -> void:
 	if Input.is_key_pressed(KEY_KP_7):
 		get_tree().quit()
 	
-	#if Input.is_action_just_pressed("Erase"):
-		#builder.brush_sphere(voxel_terrain, VoxelTool.MODE_REMOVE, 10.0)
+	if Input.is_action_just_pressed("Erase"):
+		builder.brush_sphere(voxel_terrain, VoxelTool.MODE_REMOVE, 10.0)

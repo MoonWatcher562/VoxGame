@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpbk2plry6i10"]
+[gd_scene load_steps=10 format=3 uid="uid://bpbk2plry6i10"]
 
 [ext_resource type="Script" uid="uid://dxkbrmbamajed" path="res://Scripts/Scenes/main.gd" id="1_8gbba"]
 [ext_resource type="VoxelMesherBlocky" uid="uid://lw1f5em0ilm" path="res://Assets/TerrainCommon/VoxelLib.tres" id="2_8gbba"]
-[ext_resource type="PackedScene" uid="uid://em383i6lstmo" path="res://Scenes/Player/PlayerMain.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://dv2jfcyrsfudl" path="res://Scenes/Player/Builder.tscn" id="3_8gbba"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8gbba"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -17,12 +17,146 @@ sky = SubResource("Sky_jjvhh")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_bo1nx"]
-frequency = 0.0013
-
-[sub_resource type="VoxelGeneratorNoise2D" id="VoxelGeneratorNoise2D_8gbba"]
-noise = SubResource("FastNoiseLite_bo1nx")
-channel = 0
+[sub_resource type="VoxelGeneratorGraph" id="VoxelGeneratorGraph_8gbba"]
+graph_data = {
+"connections": [[2, 0, 19, 2], [2, 0, 20, 0], [8, 0, 19, 0], [26, 0, 35, 0], [27, 0, 28, 0], [28, 0, 31, 0], [29, 0, 28, 1], [30, 0, 31, 1], [31, 0, 26, 0], [32, 0, 29, 0], [33, 0, 27, 0], [34, 0, 30, 0], [35, 0, 40, 1], [36, 0, 35, 1], [40, 0, 44, 0], [41, 0, 40, 0], [43, 0, 44, 1], [44, 0, 6, 0]],
+"nodes": {
+"1": {
+"gui_position": Vector2(660, -280),
+"type": "InputX"
+},
+"19": {
+"b": 0.0,
+"gui_position": Vector2(880, -20),
+"threshold": 0.0,
+"type": "Select"
+},
+"2": {
+"gui_position": Vector2(720, 120),
+"type": "InputY"
+},
+"20": {
+"auto_connect": true,
+"gui_position": Vector2(860, 140),
+"height": 0.0,
+"type": "SdfPlane"
+},
+"22": {
+"a": 0.0,
+"b": 0.0,
+"gui_position": Vector2(1220, -180),
+"smoothness": 0.0,
+"type": "SdfSmoothUnion"
+},
+"24": {
+"a": 0.0,
+"b": 0.0,
+"gui_position": Vector2(1020, -180),
+"type": "Max"
+},
+"25": {
+"a": 0.0,
+"b": 0.0,
+"gui_position": Vector2(1320, 200),
+"type": "Min"
+},
+"26": {
+"gui_position": Vector2(2080, -240),
+"type": "Sqrt"
+},
+"27": {
+"gui_position": Vector2(1600, -240),
+"p": 2.0,
+"type": "Pow"
+},
+"28": {
+"gui_position": Vector2(1780, -240),
+"type": "Add"
+},
+"29": {
+"gui_position": Vector2(1600, -120),
+"p": 2.0,
+"type": "Pow"
+},
+"3": {
+"gui_position": Vector2(660, -200),
+"type": "InputZ"
+},
+"30": {
+"gui_position": Vector2(1600, 0),
+"p": 2.0,
+"type": "Pow"
+},
+"31": {
+"gui_position": Vector2(1960, -240),
+"type": "Add"
+},
+"32": {
+"gui_position": Vector2(1500, -120),
+"type": "InputY"
+},
+"33": {
+"gui_position": Vector2(1500, -240),
+"type": "InputX"
+},
+"34": {
+"gui_position": Vector2(1500, 0),
+"type": "InputZ"
+},
+"35": {
+"gui_position": Vector2(2200, -240),
+"type": "Subtract"
+},
+"36": {
+"gui_position": Vector2(2080, -140),
+"type": "Constant",
+"value": 100.0
+},
+"40": {
+"gui_position": Vector2(2360, -260),
+"type": "Max"
+},
+"41": {
+"gui_position": Vector2(2260, -320),
+"type": "InputY"
+},
+"42": {
+"a": 0.0,
+"b": 0.0,
+"gui_position": Vector2(2540, -260),
+"type": "Max"
+},
+"43": {
+"auto_connect": true,
+"gui_position": Vector2(2320, -140),
+"size_x": 10.0,
+"size_y": 100.0,
+"size_z": 10.0,
+"type": "SdfBox",
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+},
+"44": {
+"gui_position": Vector2(2540, -160),
+"type": "Min"
+},
+"6": {
+"gui_position": Vector2(2760, -260),
+"type": "OutputType"
+},
+"8": {
+"auto_connect": true,
+"gui_position": Vector2(640, -60),
+"radius": 100.0,
+"type": "SdfSphere",
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+}
+},
+"version": 2
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjgbg"]
 render_priority = 1
@@ -52,13 +186,17 @@ environment = SubResource("Environment_kry3j")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
+directional_shadow_max_distance = 500.0
 
 [node name="VoxelTerrain" type="VoxelTerrain" parent="."]
-generator = SubResource("VoxelGeneratorNoise2D_8gbba")
+max_view_distance = 256
+generator = SubResource("VoxelGeneratorGraph_8gbba")
 mesher = ExtResource("2_8gbba")
 
 [node name="Fireball" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_overlay = SubResource("StandardMaterial3D_bo1nx")
 
-[node name="PlayerMain" parent="." instance=ExtResource("3_8gbba")]
+[node name="Builder" parent="." instance=ExtResource("3_8gbba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.75145, 0, 0)
+enabled = true
