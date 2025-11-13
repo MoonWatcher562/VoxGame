@@ -1,0 +1,168 @@
+[gd_resource type="VoxelGeneratorGraph" format=3 uid="uid://coj3jkfkxsiyu"]
+
+[resource]
+graph_data = {
+"connections": [[9, 0, 14, 0], [1, 0, 7, 0], [10, 0, 11, 0], [2, 0, 10, 0], [3, 0, 8, 0], [7, 0, 9, 0], [8, 0, 9, 1], [11, 0, 13, 1], [12, 0, 11, 1], [14, 0, 13, 0], [15, 0, 14, 1], [16, 0, 19, 0], [17, 0, 21, 0], [18, 0, 20, 0], [19, 0, 22, 0], [20, 0, 23, 0], [21, 0, 24, 0], [22, 0, 27, 0], [23, 0, 26, 0], [24, 0, 26, 1], [25, 0, 22, 1], [25, 0, 23, 1], [25, 0, 24, 1], [26, 0, 27, 1], [28, 0, 29, 0], [29, 0, 35, 1], [30, 0, 31, 0], [31, 0, 34, 0], [32, 0, 34, 1], [33, 0, 32, 0], [34, 0, 35, 0], [35, 0, 36, 2], [36, 0, 38, 0], [38, 0, 6, 0], [39, 0, 38, 2]],
+"nodes": {
+"1": {
+"gui_position": Vector2(440, 40),
+"type": "InputX"
+},
+"10": {
+"gui_position": Vector2(760, 280),
+"type": "Abs"
+},
+"11": {
+"gui_position": Vector2(960, 280),
+"type": "Subtract"
+},
+"12": {
+"gui_position": Vector2(740, 360),
+"name": &"Height",
+"type": "Constant",
+"value": 10.0
+},
+"13": {
+"gui_position": Vector2(1260, 140),
+"type": "Max"
+},
+"14": {
+"gui_position": Vector2(960, 60),
+"type": "Subtract"
+},
+"15": {
+"gui_position": Vector2(740, 180),
+"name": &"Radius",
+"type": "Constant",
+"value": 100.0
+},
+"16": {
+"gui_position": Vector2(540, 440),
+"type": "InputX"
+},
+"17": {
+"gui_position": Vector2(540, 640),
+"type": "InputZ"
+},
+"18": {
+"gui_position": Vector2(540, 540),
+"type": "InputY"
+},
+"19": {
+"gui_position": Vector2(660, 440),
+"type": "Abs"
+},
+"2": {
+"gui_position": Vector2(660, 280),
+"type": "InputY"
+},
+"20": {
+"gui_position": Vector2(660, 540),
+"type": "Abs"
+},
+"21": {
+"gui_position": Vector2(660, 640),
+"type": "Abs"
+},
+"22": {
+"gui_position": Vector2(860, 440),
+"type": "Subtract"
+},
+"23": {
+"gui_position": Vector2(860, 540),
+"type": "Subtract"
+},
+"24": {
+"gui_position": Vector2(860, 640),
+"type": "Subtract"
+},
+"25": {
+"gui_position": Vector2(700, 720),
+"type": "Constant",
+"value": 40.0
+},
+"26": {
+"gui_position": Vector2(1080, 540),
+"type": "Max"
+},
+"27": {
+"gui_position": Vector2(1260, 440),
+"type": "Max"
+},
+"28": {
+"gui_position": Vector2(460, 1180),
+"type": "InputZ"
+},
+"29": {
+"gui_position": Vector2(580, 1180),
+"power": 2,
+"type": "Powi"
+},
+"3": {
+"gui_position": Vector2(440, 160),
+"type": "InputZ"
+},
+"30": {
+"gui_position": Vector2(460, 980),
+"type": "InputX"
+},
+"31": {
+"gui_position": Vector2(580, 980),
+"power": 2,
+"type": "Powi"
+},
+"32": {
+"gui_position": Vector2(560, 1080),
+"power": 2,
+"type": "Powi"
+},
+"33": {
+"gui_position": Vector2(460, 1080),
+"type": "InputY"
+},
+"34": {
+"gui_position": Vector2(740, 980),
+"type": "Add"
+},
+"35": {
+"gui_position": Vector2(940, 980),
+"type": "Add"
+},
+"36": {
+"a": 1.0,
+"b": 0.0,
+"gui_position": Vector2(1100, 920),
+"threshold": 1001.0,
+"type": "Select"
+},
+"38": {
+"b": 0.0,
+"gui_position": Vector2(1340, 920),
+"threshold": 0.0,
+"type": "Select"
+},
+"39": {
+"gui_position": Vector2(1240, 980),
+"type": "InputY"
+},
+"6": {
+"gui_position": Vector2(1620, 920),
+"type": "OutputType"
+},
+"7": {
+"gui_position": Vector2(560, 60),
+"power": 2,
+"type": "Powi"
+},
+"8": {
+"gui_position": Vector2(560, 180),
+"power": 2,
+"type": "Powi"
+},
+"9": {
+"gui_position": Vector2(760, 60),
+"type": "Add"
+}
+},
+"version": 2
+}

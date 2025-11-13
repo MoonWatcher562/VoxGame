@@ -1,0 +1,64 @@
+[gd_resource type="VoxelGeneratorGraph" load_steps=2 format=3 uid="uid://nudvpv6mswkw"]
+
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_p44kv"]
+
+[resource]
+graph_data = {
+"connections": [[75, 0, 78, 0], [76, 0, 77, 0], [77, 0, 78, 1], [78, 0, 79, 1], [79, 0, 45, 0], [80, 0, 81, 0], [81, 0, 79, 0], [82, 0, 81, 1]],
+"nodes": {
+"45": {
+"auto_connect": true,
+"gui_position": Vector2(1760, 900),
+"type": "OutputSDF"
+},
+"75": {
+"auto_connect": true,
+"gui_position": Vector2(1000, 940),
+"noise": SubResource("ZN_FastNoiseLite_p44kv"),
+"type": "FastNoise3D",
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+},
+"76": {
+"gui_position": Vector2(920, 1100),
+"type": "InputY"
+},
+"77": {
+"b": 0.5,
+"gui_position": Vector2(1020, 1100),
+"type": "Multiply"
+},
+"78": {
+"gui_position": Vector2(1220, 1000),
+"type": "Subtract"
+},
+"79": {
+"gui_position": Vector2(1440, 900),
+"type": "Max"
+},
+"80": {
+"auto_connect": true,
+"gui_position": Vector2(1000, 600),
+"type": "Distance3D",
+"x0": 0.0,
+"x1": 0.0,
+"y0": 0.0,
+"y1": 0.0,
+"z0": 0.0,
+"z1": 0.0
+},
+"81": {
+"gui_position": Vector2(1200, 760),
+"type": "Subtract"
+},
+"82": {
+"gui_position": Vector2(980, 840),
+"name": &"Radius",
+"type": "Constant",
+"value": 100.0
+}
+},
+"version": 2
+}
+subdivision_size = 32

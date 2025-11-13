@@ -1,0 +1,104 @@
+[gd_resource type="VoxelGraphFunction" load_steps=9 format=3 uid="uid://dk33mefpqbi0k"]
+
+[ext_resource type="VoxelGraphFunction" uid="uid://b87qlyedmelwm" path="res://Resources/TerrainGenerators/Functions/PlusXorZ.tres" id="1_rcl0a"]
+
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_4dj51"]
+
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_n0dm6"]
+
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_bfve6"]
+
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_7g5u0"]
+noise_type = 3
+
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_us4f2"]
+
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_qofsh"]
+
+[sub_resource type="ZN_FastNoiseLite" id="ZN_FastNoiseLite_qdoj2"]
+
+[resource]
+graph_data = {
+"connections": [],
+"nodes": {
+"1": {
+"auto_connect": true,
+"gui_position": Vector2(440, 154),
+"noise": SubResource("ZN_FastNoiseLite_4dj51"),
+"type": "FastNoise3D",
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+},
+"2": {
+"auto_connect": true,
+"gui_position": Vector2(560, 340),
+"noise": SubResource("ZN_FastNoiseLite_n0dm6"),
+"type": "FastNoise3D",
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+},
+"3": {
+"auto_connect": true,
+"gui_position": Vector2(320, 340),
+"noise": SubResource("ZN_FastNoiseLite_bfve6"),
+"type": "FastNoise3D",
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+},
+"4": {
+"auto_connect": true,
+"gui_position": Vector2(200, 160),
+"noise": SubResource("ZN_FastNoiseLite_7g5u0"),
+"type": "FastNoise3D",
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+},
+"5": {
+"auto_connect": true,
+"gui_position": Vector2(660, 160),
+"noise": SubResource("ZN_FastNoiseLite_us4f2"),
+"type": "FastNoise3D",
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+},
+"6": {
+"auto_connect": true,
+"gui_position": Vector2(320, -20),
+"noise": SubResource("ZN_FastNoiseLite_qofsh"),
+"type": "FastNoise3D",
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+},
+"7": {
+"auto_connect": true,
+"gui_position": Vector2(580, -20),
+"noise": SubResource("ZN_FastNoiseLite_qdoj2"),
+"type": "FastNoise3D",
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+},
+"8": {
+"gui_position": Vector2(-220, 200),
+"type": "InputX"
+},
+"9": {
+"PlusX": 0.0,
+"PlusZ": 0.0,
+"_function": ExtResource("1_rcl0a"),
+"auto_connect": true,
+"gui_position": Vector2(-72.6, 387.2),
+"type": "Function",
+"x": 0.0,
+"z": 0.0
+}
+},
+"version": 2
+}
+input_definitions = [["x", "InputX", 0], ["y", "InputY", 0], ["z", "InputZ", 0]]

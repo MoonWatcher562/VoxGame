@@ -1,0 +1,107 @@
+[gd_resource type="VoxelGeneratorGraph" load_steps=4 format=3 uid="uid://d4f4f1myqt5nn"]
+
+[ext_resource type="VoxelGraphFunction" uid="uid://cmvm1lkq1ajbw" path="res://Resources/TerrainGenerators/Functions/Distance.tres" id="1_jovq1"]
+[ext_resource type="ZN_FastNoiseLite" uid="uid://cdiex26ymxarx" path="res://Resources/TerrainGenerators/Functions/PerlinNoiseForAvg.tres" id="2_mqis7"]
+
+[sub_resource type="Curve" id="Curve_qmaha"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 43.9451, 0, 1, Vector2(0.045, 0.977528), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0235308, 0.0, 1, 0]
+point_count = 3
+
+[resource]
+graph_data = {
+"connections": [[29, 0, 4, 0], [21, 0, 83, 0], [23, 0, 24, 0], [24, 0, 27, 1], [25, 0, 23, 0], [26, 0, 24, 1], [27, 0, 29, 0], [36, 0, 39, 0], [38, 0, 29, 1], [39, 0, 38, 0], [43, 0, 45, 1], [45, 0, 38, 1], [51, 0, 78, 0], [78, 0, 45, 0], [83, 0, 27, 0]],
+"nodes": {
+"21": {
+"_function": ExtResource("1_jovq1"),
+"auto_connect": true,
+"gui_position": Vector2(660, 260),
+"type": "Function",
+"x": 0.0,
+"z": 0.0
+},
+"23": {
+"gui_position": Vector2(700, 380),
+"type": "Abs"
+},
+"24": {
+"gui_position": Vector2(880, 400),
+"type": "Subtract"
+},
+"25": {
+"gui_position": Vector2(560, 380),
+"type": "InputY"
+},
+"26": {
+"gui_position": Vector2(680, 480),
+"name": &"Height",
+"type": "Constant",
+"value": 4.0
+},
+"27": {
+"gui_position": Vector2(1100, 340),
+"name": &"Disc Surface",
+"type": "Max"
+},
+"29": {
+"gui_position": Vector2(1340, 540),
+"name": &"Union",
+"type": "Min"
+},
+"36": {
+"gui_position": Vector2(540, 620),
+"type": "InputY"
+},
+"38": {
+"gui_position": Vector2(1000, 660),
+"name": &"Noise",
+"type": "Max"
+},
+"39": {
+"b": -1.0,
+"gui_position": Vector2(680, 620),
+"name": &"Cuts Noise",
+"type": "Multiply"
+},
+"4": {
+"auto_connect": true,
+"gui_position": Vector2(1560, 540),
+"type": "OutputSDF"
+},
+"43": {
+"auto_connect": true,
+"gui_position": Vector2(440, 900),
+"radius": 256.0,
+"type": "SdfSphere",
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+},
+"45": {
+"gui_position": Vector2(660, 800),
+"name": &"Noise in Spherical",
+"type": "Max"
+},
+"51": {
+"auto_connect": true,
+"gui_position": Vector2(260, 780),
+"name": &"Perlin",
+"noise": ExtResource("2_mqis7"),
+"type": "FastNoise3D",
+"x": 0.0,
+"y": 0.0,
+"z": 0.0
+},
+"78": {
+"curve": SubResource("Curve_qmaha"),
+"gui_position": Vector2(460, 780),
+"type": "Curve"
+},
+"83": {
+"b": 255.5,
+"gui_position": Vector2(860, 260),
+"type": "Subtract"
+}
+},
+"version": 2
+}

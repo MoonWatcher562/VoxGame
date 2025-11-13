@@ -1,0 +1,75 @@
+[gd_resource type="VoxelGraphFunction" format=3 uid="uid://d26kya02xyx4x"]
+
+[resource]
+graph_data = {
+"connections": [[1, 0, 9, 0], [2, 0, 1, 0], [3, 0, 1, 1], [4, 0, 9, 1], [5, 0, 10, 1], [6, 0, 11, 1], [7, 0, 12, 1], [8, 0, 13, 1], [9, 0, 10, 0], [10, 0, 11, 0], [11, 0, 12, 0], [12, 0, 13, 0], [13, 0, 14, 0]],
+"nodes": {
+"1": {
+"gui_position": Vector2(-460, 700),
+"type": "Add"
+},
+"10": {
+"gui_position": Vector2(-140, 700),
+"type": "Add"
+},
+"11": {
+"gui_position": Vector2(20, 700),
+"type": "Add"
+},
+"12": {
+"gui_position": Vector2(180, 700),
+"type": "Add"
+},
+"13": {
+"gui_position": Vector2(340, 700),
+"type": "Add"
+},
+"14": {
+"gui_position": Vector2(500, 700),
+"name": &"out",
+"type": "CustomOutput"
+},
+"2": {
+"gui_position": Vector2(-640, 700),
+"name": &"1",
+"type": "CustomInput"
+},
+"3": {
+"gui_position": Vector2(-640, 780),
+"name": &"2",
+"type": "CustomInput"
+},
+"4": {
+"gui_position": Vector2(-640, 860),
+"name": &"3",
+"type": "CustomInput"
+},
+"5": {
+"gui_position": Vector2(-640, 940),
+"name": &"4",
+"type": "CustomInput"
+},
+"6": {
+"gui_position": Vector2(-640, 1020),
+"name": &"5",
+"type": "CustomInput"
+},
+"7": {
+"gui_position": Vector2(-640, 1100),
+"name": &"6",
+"type": "CustomInput"
+},
+"8": {
+"gui_position": Vector2(-640, 1180),
+"name": &"7",
+"type": "CustomInput"
+},
+"9": {
+"gui_position": Vector2(-300, 700),
+"type": "Add"
+}
+},
+"version": 2
+}
+input_definitions = [["1", "CustomInput", 0], ["2", "CustomInput", 0], ["3", "CustomInput", 0], ["4", "CustomInput", 0], ["5", "CustomInput", 0], ["6", "CustomInput", 0], ["7", "CustomInput", 0]]
+output_definitions = [["out", "CustomOutput", 0]]

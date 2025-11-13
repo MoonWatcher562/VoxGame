@@ -1,0 +1,47 @@
+[gd_resource type="VoxelGraphFunction" format=3 uid="uid://b87qlyedmelwm"]
+
+[resource]
+graph_data = {
+"connections": [[1, 0, 3, 0], [2, 0, 4, 0], [3, 0, 7, 0], [4, 0, 8, 0], [5, 0, 4, 1], [6, 0, 3, 1]],
+"nodes": {
+"1": {
+"gui_position": Vector2(40, 140),
+"type": "InputX"
+},
+"2": {
+"gui_position": Vector2(40, 300),
+"type": "InputZ"
+},
+"3": {
+"gui_position": Vector2(200, 140),
+"type": "Add"
+},
+"4": {
+"gui_position": Vector2(200, 300),
+"type": "Add"
+},
+"5": {
+"gui_position": Vector2(-40, 380),
+"name": &"PlusZ",
+"type": "CustomInput"
+},
+"6": {
+"gui_position": Vector2(-40, 220),
+"name": &"PlusX",
+"type": "CustomInput"
+},
+"7": {
+"gui_position": Vector2(360, 140),
+"name": &"x",
+"type": "CustomOutput"
+},
+"8": {
+"gui_position": Vector2(360, 300),
+"name": &"z",
+"type": "CustomOutput"
+}
+},
+"version": 2
+}
+input_definitions = [["x", "InputX", 0], ["z", "InputZ", 0], ["PlusX", "CustomInput", 0], ["PlusZ", "CustomInput", 0]]
+output_definitions = [["x", "CustomOutput", 0], ["z", "CustomOutput", 0]]

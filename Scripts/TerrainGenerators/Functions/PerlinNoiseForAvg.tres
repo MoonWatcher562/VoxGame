@@ -1,0 +1,6 @@
+[gd_resource type="ZN_FastNoiseLite" format=3 uid="uid://cdiex26ymxarx"]
+
+[resource]
+noise_type = 3
+seed = 4
+period = 128.0
